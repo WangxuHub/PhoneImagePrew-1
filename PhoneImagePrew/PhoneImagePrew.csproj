@@ -57,6 +57,12 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resource\bootstrap\css\bootstrap-theme.css.map" />
+    <Content Include="Resource\bootstrap\css\bootstrap.css.map" />
+    <Content Include="Resource\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Resource\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Resource\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Resource\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -65,10 +71,30 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Image.html" />
+    <Content Include="Resource\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="Resource\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="Resource\bootstrap\css\bootstrap.css" />
+    <Content Include="Resource\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Resource\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Resource\bootstrap\js\bootstrap.js" />
+    <Content Include="Resource\bootstrap\js\bootstrap.min.js" />
+    <Content Include="Resource\bootstrap\js\npm.js" />
+    <Content Include="imagePreview.js" />
+    <Content Include="Resource\image\1.jpg" />
+    <Content Include="Resource\image\2.jpg" />
+    <Content Include="Resource\image\3.jpg" />
+    <Content Include="Resource\image\4.jpg" />
+    <Content Include="Resource\image\5.jpg" />
+    <Content Include="Resource\jquery-1.12.3.js" />
+    <Content Include="Resource\jquery.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resource\ImagePreview\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
