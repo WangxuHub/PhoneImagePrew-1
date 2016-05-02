@@ -35,7 +35,7 @@
         $("body").append('\
             <div id="imageModal" style="display:none;position:fixed;opacity:1;background-color:black;top:0px;left:0px;right:0px;bottom:0px;">\
                 <div id="imageHead" style="border-bottom: 1px solid white;height:20px;z-index:9999;background-color:black;position:absolute;top:0;left:0;right:0;"></div>\
-                <div id="imageBody"></div>\
+                <div id="imageBody" style="position:relative;overflow: scroll;height:'+(window.innerHeight-42)+'px;"></div>\
                 <div id="imageFooter" style="border-top:1px solid white;height:20px;position:fixed;bottom:0px;left:0px;right:0px;background-color:black;"></div>\
             </div>');
 
@@ -72,9 +72,20 @@
             });
         }
 
-        $("#imageModal>#imageBody img[imgguid]").dblclick(function () {
-            if ($(this).css("width"))
-                ;
+        $("#imageModal>#imageBody img[imgguid]").each(function(){
+            $(this).click(function () {//.dblclick(function () {
+                var winW = window.innerWidth;
+                var imgW = $(this).width();
+           
+                console.log("winW:" + winW);
+                console.log("imgW:" + imgW);
+                if (winW==imgW) {
+                    $(this).css("width", "auto");
+                }
+                else {
+                    $(this).width(winW);
+                }
+            });
         });
              
     };  // /
