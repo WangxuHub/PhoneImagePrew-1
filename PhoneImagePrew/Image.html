@@ -1,0 +1,102 @@
+﻿
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1,user-scalable=no">
+    <title>图片处理</title>
+    <!--<link href="Resource/bootstrap/css/bootstrap.css" rel="stylesheet" />-->
+
+    <script src="Resource/jquery-1.12.3.js"></script>
+    <script src="imagepreview.js"></script>
+    <!--<script src="Resource/bootstrap/js/bootstrap.min.js" defer="defer"></script>-->
+    <style>
+        * {
+            padding:0px;
+            margin:0px;
+        }
+        div.imgContent img {
+            width:50px;
+            height:50px;
+        }
+
+        div.imgContent {
+            display: inline-block;
+            1margin: 10px;
+            border: 1px solid #CCC;
+            1box-shadow: 5px 5px 5px;
+            
+            width:50px;
+            height:50px;
+            overflow:hidden;
+        }   
+         
+        
+    </style>
+</head>
+<body>
+    <input type="file" id="uploadFile" multiple="multiple" accept="image/*" />
+
+    <img id="origionImg" src="" />
+    <img id="newImg" src="" />
+    <div id="fileContent">
+        <div class='imgContent'>
+            <img src="Resource/image/1.jpg"/>
+        </div>
+        <div class='imgContent'>
+            <img src="Resource/image/2.jpg" />
+        </div>
+        <div class='imgContent'>
+            <img src="Resource/image/3.jpg" />
+        </div>
+        <div class='imgContent'>
+            <img src="Resource/image/4.jpg" />
+        </div>
+        <div class='imgContent'>
+            <img src="Resource/image/5.jpg" />
+        </div>
+    </div>
+
+    <script>
+        $("#fileContent img").dyMobilePrew();
+
+        //$.dyMobilePrew({
+        //    imgSrcs: ["asdasda.jpg"],//
+        //    imgObj: "#fileContent img"
+        //});
+
+
+        $("#uploadFile").change(function (e) {
+            var files = e.target.files;
+
+
+            for (var i = 0; i < files.length;i++)
+            {
+                imagePrew(files[i]);
+
+            }
+
+
+        });
+
+        function imagePrew(file) {
+            var fileReader = new FileReader();
+            var fileSize = file.size;
+            var fileType = file.type;
+            fileReader.onload = function (evt) {
+                var jqImgContent = $("<div class='imgContent'></div>");//.html("<p class='imgInfo'>fileType:" +Math.round(fileSize/1024) + "KB,fileSize:" + fileType+"</p>");
+
+                $("<img/>").attr({
+                    "src": evt.target.result,
+                    "fileSize": fileSize,
+                    "fileType": fileType
+                })
+                .appendTo(jqImgContent);
+                jqImgContent.appendTo("#fileContent");;
+            };
+            fileReader.readAsDataURL(file);
+        }
+    </script>
+</body>
+</html>
